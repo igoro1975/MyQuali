@@ -3,9 +3,9 @@
   sudo: yes
   remote_user: root
   vars:
-  - aaa2: "{{aaa|default('AA')}}"
+  - aaa2: "{{aaa|default('CC')}}"
   - bbb2: "{{bbb|default('BB')}}"
-  - ccc2: "{{ccc|default('CC')}}"
+  - ccc2: "{{ccc|default('AA')}}"
   tasks:
   - name: PrintSomething
     debug: var=aaa2
