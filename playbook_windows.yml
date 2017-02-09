@@ -1,0 +1,18 @@
+---
+- hosts: all
+  gather_facts: no
+  vars:
+  - aaa2: "{{aaa|default('CC')}}"
+  - bbb2: "{{bbb|default('BB')}}"
+  - ccc2: "{{ccc|default('AA')}}"
+  tasks:
+  - name: wait for winrm {{ inventory_hostname }}
+    local_action: wait_for host={{ inventory_hostname }} port=5985 state=started delay=0 timeout=600
+  - name: gather facts
+    setup:
+  - name: PrintSomething
+    debug: var=aaa2
+  - name: PrintSomething
+    debug: var=bbb2
+  - name: PrintSomething
+    debug: var=ccc2
