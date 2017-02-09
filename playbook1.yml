@@ -1,7 +1,5 @@
 ---
 - hosts: all
-  sudo: yes
-  remote_user: root
   vars:
   - aaa2: "{{aaa|default('CC')}}"
   - bbb2: "{{bbb|default('BB')}}"
