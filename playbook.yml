@@ -1,0 +1,19 @@
+---
+- hosts: all
+  vars:
+  - aaa2: "{{aaa|default('AA')}}"
+  - bbb2: "{{bbb|default('BB')}}"
+  - ccc2: "{{ccc|default('CC')}}"
+  tasks:
+  - name: Wait for hosts
+    wait_for:
+    host: 0.0.0.0
+    port: 22
+    delay: 10
+    state: drained
+  - name: PrintSomething
+    debug: var=aaa2
+  - name: PrintSomething
+    debug: var=bbb2
+  - name: PrintSomething
+    debug: var=ccc2
